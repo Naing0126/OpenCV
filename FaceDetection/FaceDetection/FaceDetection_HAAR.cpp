@@ -5,8 +5,21 @@
 using namespace cv;
 using namespace std;
 
-#define HAARCASCADE_FACE_DB "c:/Program Files/opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml"
+#define HAARCASCADE_FACE_DB "c:/Program Files/opencv/sources/data/haarcascades/haarcascade_frontalface_alt2.xml"
 
+#define VIDEO_NAME "C:\\Users\\SSM\\Documents\\OpenCV\\Apink_Luv3.avi"
+#define FRAMES_NAME "./Labeling/frame%03d.bmp"
+#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./Labeling/detected%03d.bmp"
+
+Scalar Color[] = {
+	Scalar(255, 0, 0),
+	Scalar(0, 255, 0),
+	Scalar(0, 0, 255),
+	Scalar(255, 255, 0),
+	Scalar(255, 0, 255),
+	Scalar(0,255, 255),
+
+};
 
 int main(void)
 {
@@ -19,7 +32,7 @@ int main(void)
 	IplImage *img;
 
 	// Load Video
-	CvCapture *capture = cvCaptureFromAVI("C:\\Users\\SSM\\Documents\\OpenCV\\Apink_Luv3.avi");
+	CvCapture *capture = cvCaptureFromAVI(VIDEO_NAME);
 	
 
 	int count = 0;
@@ -33,7 +46,7 @@ int main(void)
 
 			// Save Image
 			string filename;
-			filename = cv::format("./haar_default/capture%03d.bmp", count);
+			filename = cv::format(FRAMES_NAME, count);
 			cvSaveImage(filename.c_str(), img);
 			cvWaitKey(1);
 			count++;
@@ -61,7 +74,7 @@ int main(void)
 		// Read the image
 		Mat frame;
 		string filename;
-		filename = cv::format("./haar_default/capture%03d.bmp", count);
+		filename = cv::format(FRAMES_NAME, count);
 
 		frame = imread(filename, CV_LOAD_IMAGE_COLOR);
 
@@ -83,11 +96,11 @@ int main(void)
 			Point rightBottom(faces[i].x + faces[i].width, faces[i].y + faces[i].height);
 
 			// draw rectangle
-			rectangle(frame, leftTop, rightBottom, Scalar(255, 255, 255), 4, 8, 0);
+			rectangle(frame, leftTop, rightBottom, Color[i], 4, 8, 0);
 		}
 
 		string sfilename;
-		sfilename = cv::format("./haar_default/detected%03d.bmp", count);
+		sfilename = cv::format(DETECTED_IMAGE_DESTINATION_DIRECTORY, count);
 
 		cvSaveImage(sfilename.c_str(), &IplImage(frame));
 		

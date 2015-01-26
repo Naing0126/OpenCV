@@ -21,6 +21,7 @@ int main(void)
 	// Load Video
 	CvCapture *capture = cvCaptureFromAVI("C:\\Users\\SSM\\Documents\\OpenCV\\Apink_Luv3.avi");
 	
+
 	int count = 0;
 
 	if (capture)

@@ -65,7 +65,7 @@ int main(int argc, const char** argv) {
 		printf("Writing frame #%lu... ", pos);
 		sprintf(filename, "%.3lu.jpg", pos);
 		filepath = outputPath / fs::path(filename);
-		imwrite(filepath.native(), frame);
+		imwrite(filepath.string(), frame);
 		printf("done.\n");
 		++pos;
 	}

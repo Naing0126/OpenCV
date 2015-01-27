@@ -1,3 +1,9 @@
+/*
+
+Face Detection and Labeling
+
+*/
+
 #include "opencv2/objdetect/objdetect.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
@@ -7,9 +13,9 @@ using namespace std;
 
 #define HAARCASCADE_FACE_DB "c:/Program Files/opencv/sources/data/haarcascades/haarcascade_frontalface_alt2.xml"
 
-#define VIDEO_NAME "C:\\Users\\SSM\\Documents\\OpenCV\\Apink_Luv3.avi"
-#define FRAMES_NAME "./Labeling/frame%03d.bmp"
-#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./Labeling/detected%03d.bmp"
+#define VIDEO_NAME "C:\\Users\\SSM\\Documents\\OpenCV\\Apink_NoNoNo.avi"
+#define FRAMES_NAME "./NoNoNo_haar_alt2/frame%03d.bmp"
+#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./NoNoNo_haar_alt2/detected%03d.bmp"
 
 Scalar Color[] = {
 	Scalar(255, 0, 0),
@@ -77,6 +83,7 @@ int main(void)
 		filename = cv::format(FRAMES_NAME, count);
 
 		frame = imread(filename, CV_LOAD_IMAGE_COLOR);
+		IplImage * transFrame = &IplImage(frame);
 
 		// detect and display
 		std::vector<Rect> faces;
@@ -97,6 +104,16 @@ int main(void)
 
 			// draw rectangle
 			rectangle(frame, leftTop, rightBottom, Color[i], 4, 8, 0);
+
+			// Numbering
+
+			CvFont font;
+			cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, 1.0, 1.0, 0, 1, CV_AA);
+			
+			string str = to_string(i+1);
+			char const * number = str.c_str();
+
+			cvPutText(transFrame, number, cvPoint(faces[i].x - 20, faces[i].y ), &font, Color[i]);
 		}
 
 		string sfilename;

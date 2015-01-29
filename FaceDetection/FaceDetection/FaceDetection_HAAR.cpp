@@ -6,10 +6,10 @@ Face Detection and Labeling
 #include "opencv2/imgproc/imgproc.hpp"
 using namespace cv;
 using namespace std;
-#define HAARCASCADE_FACE_DB "c:/Program Files/opencv/sources/data/haarcascades/haarcascade_frontalface_alt2.xml"
+#define HAARCASCADE_FACE_DB "c:/Program Files/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml"
 #define VIDEO_NAME "C:\\Users\\SSM\\Documents\\OpenCV\\Apink_NoNoNo.avi"
-#define FRAMES_NAME "./NoNoNo_haar_alt2/frame%03d.bmp"
-#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./NoNoNo_haar_alt2/detected%03d.bmp"
+#define FRAMES_NAME "./NoNoNo_haar_alt/frame%03d.bmp"
+#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./NoNoNo_haar_alt/detected%03d.bmp"
 Scalar Color[] = {
 	Scalar(255, 0, 0),
 	Scalar(0, 255, 0),

@@ -15,7 +15,7 @@ using namespace std;
 
 #define VIDEO_NAME "C:\\Users\\SSM\\Documents\\OpenCV\\Apink_NoNoNo.avi"
 #define FRAMES_NAME "./NoNoNo_haar_alt2/frame%03d.bmp"
-#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./NoNoNo_haar_alt2/detected%03d.bmp"
+#define DETECTED_IMAGE_DESTINATION_DIRECTORY "./NoNoNo_haar_alt2/associated%03d.bmp"
 
 Scalar Color[] = {
 	Scalar(255, 0, 0),

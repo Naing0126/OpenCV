@@ -138,8 +138,11 @@ int main(void)
 			temp.width = faces[i].width;
 			temp.index = -1; // initialize
 
-			// Association (find idx)
-
+			/*
+			
+				Association (find idx)
+			
+			*/
 			// 모든 befArea와 비율 비교하여 0 이상이고 최대 값인 befArea을 찾으면 
 			// curArea에 Area 정보와 함께 index를 저장
 			int Max = -10000; // 최대 비율
